@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'bday_app/main.css' %}">
+    <title>Title</title>
+</head>
+<body>
+<form  method="post" class="post-form">
+    {% csrf_token %}
+    <input type="text" id="month" name="month" placeholder="month e.g:12"><br>
+     <input type="text" id="day" name="day" placeholder="day e.g.:4"><br>
+    <button type="submit">Enter</button>
+    </form>
+<br>
+{% if context %}
+<h1>Your birthday in {{context}} days</h1>
+{% endif %}
+
+{% if error %}
+{{error}}
+{% endif %}
+
+</body>
+</html>
