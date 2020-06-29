@@ -6,16 +6,18 @@
     <link rel="stylesheet" type="text/css" href="{% static 'bday_app/main.css' %}">
     <title>Title</title>
 </head>
-<body>
+<body style="background-image: url('static/bday_app/clock.png');">
+<h1>Enter a date to find out the number of days till that date</h1>
 <form  method="post" class="post-form">
     {% csrf_token %}
-    <input type="text" id="month" name="month" placeholder="month e.g:12"><br>
-     <input type="text" id="day" name="day" placeholder="day e.g.:4"><br>
+    <input type="text" id="month" name="month" placeholder="month e.g. 12"><br>
+    <input type="text" id="day" name="day" placeholder="day e.g. 4"><br>
+    <input type="text" id="year" name="year" placeholder="year e.g. 2045"><br>
     <button type="submit">Enter</button>
     </form>
 <br>
 {% if context %}
-<h1>Your birthday in {{context}} days</h1>
+<h1>{{context}} days </h1>
 {% endif %}
 
 {% if error %}

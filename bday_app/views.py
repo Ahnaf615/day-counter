@@ -10,7 +10,8 @@ def bday(request):
         try:
             month = int(request.POST['month'])
             day = int(request.POST['day'])
-            context = time_calc(month, day)
+            year = int(request.POST['year'])
+            context = time_calc(month, day, year)
             return render(request, 'bday_app/home.html', {'context': context})
         except Exception:
             error = 'input error'
